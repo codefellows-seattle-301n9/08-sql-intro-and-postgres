@@ -112,4 +112,4 @@ For working in our codebase, we will need to supply the `server.js` file a varia
 
 If you are having an error, read your error messages and debug the problem!
 
-Once your `conString` is set properly, you should be able to start `server.js` and then go into the PostgreSQL shell, enter `/dt` in the shell, and see the ***articles*** table. Enter the SQL command `SELECT COUNT(*) FROM articles;` and that should return "250".
+Once your `conString` is set properly, you should be able to start `server.js` and then go into the PostgreSQL shell, enter `\dt` in the shell, and see the ***articles*** table. Enter the SQL command `SELECT COUNT(*) FROM articles;` and that should return "250".
