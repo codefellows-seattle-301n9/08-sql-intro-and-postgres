@@ -1,20 +1,25 @@
 # 08-sql-intro-and-postgres
 
-**Author**: Your Name Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
+**Author**: Arthur Allen, Tiger Hsu, Trevor Dobson
+**Version**: 1.0.0
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
+This application is an introduction to setting up a database and connecting to it.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+Fork the repository, clone the repository to your local machine.  Install express and pg, create your database and connect to it.
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+This application uses; HTML, CSS, JS, jQuery, AJAX, PSQL.
 
 ## Change Log
 12-21-2017 7:45 PM - Database is updating
+12-21-2017 8:45 PM - Answered comments
+12-21-2017 9:15 PM - Finished README
 
 ## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
+* icomoon icons | © 2017 Roonas. All Rights Reserved. | icomoon.io/#icons-icomoon
+* jQuery v3.2.1 | (c) JS Foundation and other contributors | jquery.org/license
+* normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css
+* handlebars v4.0.11 Copyright (C) 2011-2017 by Yehuda Katz
+* highlight.js https://highlightjs.org/
