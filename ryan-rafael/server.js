@@ -3,6 +3,7 @@
 const fs = require('fs');
 const express = require('express');
 const pg = require('pg');
+
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -10,30 +11,30 @@ const app = express();
 // Mac:
 const conString = 'postgres://localhost:5432';
 
-const client = new pg.Client(conString);  //?conString?
+const client = new pg.Client(conString); 
 
-// REVIEW: Use the client object to connect to our DB.
+// REVIEWED: Use the client object to connect to our DB.
 client.connect();
 
 
-// REVIEW: Install the middleware plugins so that our app can use the body-parser module.
+// REVIEWED: Install the middleware plugins so that our app can use the body-parser module.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 
-// REVIEW: Routes for requesting HTML resources
+// REVIEWED: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // COMMENTED: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
+  // Request = #5. article.js is interacting with server.js with the article.insertRecord method. This is an example of the Create component of CRUD.
   response.sendFile('new.html', {root: './public'});
 });
 
 
-// REVIEW: Routes for making API calls to use CRUD Operations on our database
+// REVIEWED: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // COMMENTED: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
+  // Query = #3 . article.js is interacting with server.js with the Article.fetchAll method to load all articles onto the DOM. This is an example of the Read component of CRUD.
   client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
@@ -45,7 +46,7 @@ app.get('/articles', (request, response) => {
 
 app.post('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  //  Request = #2. article.js is interacting with server.js with the Article.prototype.insertRecord method. This is another example of the Create component of CRUD.
   client.query(
     `INSERT INTO
     articles(title, author, "authorUrl", category, "publishedOn", body)
