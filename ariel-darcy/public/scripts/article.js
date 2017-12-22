@@ -2,7 +2,7 @@
 
 function Article(rawDataObj) {
   
-  /* REVIEW: This is a new construct to save all the properties of rawDataObj into our newly instantiated object. Object.keys is a function that returns an array of all the properties of an object as strings. forEach is an array method that iterates over and calls a function on each element of an array.
+  /* REVIEWED: This is a new construct to save all the properties of rawDataObj into our newly instantiated object. Object.keys is a function that returns an array of all the properties of an object as strings. forEach is an array method that iterates over and calls a function on each element of an array.
   We can also set properties on objects with bracket notation instead of dot notation, which we must do when we don't necessarily know what the property name will be and thus set it as a variable.
   Additionally, notice the use of "this" within the arrow function. How does this differ from using a classic function? 
   There is a LOT of new behavior going on here! Review object bracket notation and Object.keys to try and grok what's going on here.*/
@@ -30,7 +30,7 @@ Article.prototype.toHtml = function() {
   return template(this);
 };
 
-// REVIEW: The parameter was refactored to expect the data from the database, rather than a local file.
+// REVIEWED: The parameter was refactored to expect the data from the database, rather than a local file.
 Article.loadAll = rawData => {
   rawData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
 
@@ -41,7 +41,7 @@ Article.fetchAll = callback => {
   $.get('/articles')
   .then(
     function(results) {
-      // REVIEW: Call loadAll, and pass in the results, then invoke the callback.
+      // REVIEWED: Call loadAll, and pass in the results, then invoke the callback.
       Article.loadAll(results);
       callback();
     }
@@ -49,7 +49,7 @@ Article.fetchAll = callback => {
 };
 
 
-// REVIEW: Take a few minutes and review what each of these new methods do in relation to our server and DB
+// REVIEWED: Take a few minutes and review what each of these new methods do in relation to our server and DB
 Article.truncateTable = callback => {
   $.ajax({
     url: '/articles',
