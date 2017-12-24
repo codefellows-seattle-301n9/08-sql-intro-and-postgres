@@ -4,7 +4,7 @@ function Article(rawDataObj) {
 
   /* REVIEWED: This is a new construct to save all the properties of rawDataObj into our newly instantiated object. Object.keys is a function that returns an array of all the properties of an object as strings. forEach is an array method that iterates over and calls a function on each element of an array.
   We can also set properties on objects with bracket notation instead of dot notation, which we must do when we don't necessarily know what the property name will be and thus set it as a variable.
-  Additionally, notice the use of "this" within the arrow function. How does this differ from using a classic function? 
+  Additionally, notice the use of "this" within the arrow function. How does this differ from using a classic function?
   There is a LOT of new behavior going on here! Review object bracket notation and Object.keys to try and grok what's going on here.*/
   Object.keys(rawDataObj).forEach(key => {
     this[key] = rawDataObj[key];
@@ -39,13 +39,13 @@ Article.loadAll = rawData => {
 
 Article.fetchAll = callback => {
   $.get('/articles')
-  .then(
-    function(results) {
-      // REVIEWED: Call loadAll, and pass in the results, then invoke the callback.
-      Article.loadAll(results);
-      callback();
-    }
-  )
+    .then(
+      function(results) {
+        // REVIEWED: Call loadAll, and pass in the results, then invoke the callback.
+        Article.loadAll(results);
+        callback();
+      }
+    )
 };
 
 
@@ -55,18 +55,18 @@ Article.truncateTable = callback => {
     url: '/articles',
     method: 'DELETE',
   })
-  .then(data => {
-    console.log(data);
-    if (callback) callback();
-  });
+    .then(data => {
+      console.log(data);
+      if (callback) callback();
+    });
 };
 
 Article.prototype.insertRecord = function(callback) {
   $.post('/articles', {author: this.author, authorUrl: this.authorUrl, body: this.body, category: this.category, publishedOn: this.publishedOn, title: this.title})
-  .then(data => {
-    console.log(data);
-    if (callback) callback();
-  })
+    .then(data => {
+      console.log(data);
+      if (callback) callback();
+    })
 };
 
 Article.prototype.deleteRecord = function(callback) {
@@ -74,10 +74,10 @@ Article.prototype.deleteRecord = function(callback) {
     url: `/articles/${this.article_id}`,
     method: 'DELETE'
   })
-  .then(data => {
-    console.log(data);
-    if (callback) callback();
-  });
+    .then(data => {
+      console.log(data);
+      if (callback) callback();
+    });
 };
 
 Article.prototype.updateRecord = function(callback) {
@@ -93,8 +93,8 @@ Article.prototype.updateRecord = function(callback) {
       title: this.title
     }
   })
-  .then(data => {
-    console.log(data);
-    if (callback) callback();
-  });
+    .then(data => {
+      console.log(data);
+      if (callback) callback();
+    });
 };

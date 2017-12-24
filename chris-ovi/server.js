@@ -55,7 +55,7 @@ app.get('/articles', (request, response) => {
 app.post('/articles', (request, response) => {
   // COMMENTED: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
   // #3 & #4 of full stack diagram (querying database and receiving response)
-  // insertRecord()
+  // insertRecord() method
   // CREATE of CRUD, since we're adding a row to the table
   client.query(
     `INSERT INTO
@@ -154,7 +154,7 @@ app.listen(PORT, () => {
 ////////////////////////////////////////
 function loadArticles() {
   // COMMENTED: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // #3 & #4 
+  // #3 & #4
   // fetchAll() and inserRecord() methods - grab article data and insert into table
   // READ & UPDATE - reading through JSON file data and upating table with article data
   client.query('SELECT COUNT(*) FROM articles')
