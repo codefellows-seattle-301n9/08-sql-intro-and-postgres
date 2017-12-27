@@ -37,7 +37,7 @@ app.get('/new', (request, response) => {
 // REVIEWED: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
   // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code? 
-  // PUT YOUR RESPONSE HERE
+  // PUT YOUR RESPONSE HERE 
   client.query('SELECT * FROM articles')
     .then(function(result) {
       response.send(result.rows);
