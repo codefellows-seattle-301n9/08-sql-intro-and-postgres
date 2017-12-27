@@ -28,15 +28,15 @@ app.use(express.static('./public'));
 
 // REVIEWED: Routes for requesting HTML resources
 app.get('/new', (request, response) => {
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // PUT YOUR RESPONSE HERE
+  // COMMENTED: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
+  // #5 response sending the new.html file to the user that requested it. The part of CRUD that is used in this particular line of code is Read, and Update. 
   response.sendFile('new.html', {root: './public'});
 });
 
 
 // REVIEWED: Routes for making API calls to use CRUD Operations on our database
 app.get('/articles', (request, response) => {
-  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
+  // COMMENT: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code? 
   // PUT YOUR RESPONSE HERE
   client.query('SELECT * FROM articles')
     .then(function(result) {
