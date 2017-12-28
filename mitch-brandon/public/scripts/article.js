@@ -30,7 +30,7 @@ Article.prototype.toHtml = function() {
   return template(this);
 };
 
-// REVIEW: The parameter was refactored to expect the data from the database, rather than a local file.
+// REVIEWED: The parameter was refactored to expect the data from the database, rather than a local file.
 Article.loadAll = rawData => {
   rawData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
 
@@ -41,7 +41,7 @@ Article.fetchAll = callback => {
   $.get('/articles')
   .then(
     function(results) {
-      // REVIEW: Call loadAll, and pass in the results, then invoke the callback.
+      // REVIEWED: Call loadAll, and pass in the results, then invoke the callback.
       Article.loadAll(results);
       callback();
     }
@@ -49,7 +49,7 @@ Article.fetchAll = callback => {
 };
 
 
-// REVIEW: Take a few minutes and review what each of these new methods do in relation to our server and DB
+// REVIEWED: Take a few minutes and review what each of these new methods do in relation to our server and DB
 Article.truncateTable = callback => {
   $.ajax({
     url: '/articles',
