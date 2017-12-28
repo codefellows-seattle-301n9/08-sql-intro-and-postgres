@@ -10,10 +10,12 @@ function Article(rawDataObj) {
     this[key] = rawDataObj[key];
   });
 
-  /* STRETCH: Using Object.keys is a big improvement over explicitly typing each and every key.
+  /* STRETCHED: Using Object.keys is a big improvement over explicitly typing each and every key.
 But did you know that ES6 can do the same thing in one line?
 Research it and give it shot! */
 
+  // 'Object.create()' makes and returns a new object that inherits all the properties of the object that is passed into the method
+  Object.create(rawDataObj);
 }
 
 

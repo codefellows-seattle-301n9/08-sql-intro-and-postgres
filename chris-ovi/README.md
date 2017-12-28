@@ -26,6 +26,7 @@ Initialize new npm project, install NPM Express and PostgreSQL dependencies, and
 - completed connection string
 - instantiate new Client with proper argument
 - removed article JSON export functionality
+- completed COMMENTS & REVIEWS for defined routes in server.js
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
