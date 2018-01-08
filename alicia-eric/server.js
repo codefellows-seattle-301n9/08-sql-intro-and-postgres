@@ -1,5 +1,7 @@
 'use strict';
 
+// require dependencies
+const pg =require('pg');
 const fs = require('fs');
 const express = require('express');
 
@@ -14,11 +16,9 @@ const app = express();
 // Mac:
 const conString = 'postgres://localhost:5432';
 
-const client = new pg.Client();
-
+const client = new pg.Client(conString);
 // REVIEW: Use the client object to connect to our DB.
 client.connect();
-
 
 // REVIEW: Install the middleware plugins so that our app can use the body-parser module.
 app.use(bodyParser.json());
@@ -166,11 +166,10 @@ app.listen(PORT, () => {
 ////////////////////////////////////////
 function loadArticles() {
   // COMMENTED: What number(s) of the full-stack-diagram.png image correspond to the following line of code? Which method of article.js is interacting with this particular piece of `server.js`? What part of CRUD is being enacted/managed by this particular piece of code?
-  // 2. Creating a request
   // 3. Querying a call to the database
   // 4. Receiving a result from database query
   // 5. Making a response
-  // The fetchAll() method and insertRecord() methods are retrieving the article data and inserting it into the table.
+  // The fetchAll() method and insertRecord() methods are calling the article data when the server.js file is executed.
   // The READ/UPDATE of CRUD is being enacted by this particular piece of code to read the JSON file and update the table with the article data.
   client.query('SELECT COUNT(*) FROM articles')
     .then(result => {
@@ -218,3 +217,5 @@ function loadDB() {
       console.error(err);
     });
 }
+
+app.use((request, response) => response.status(404).sendFile('404.html', {root: './public'}))
